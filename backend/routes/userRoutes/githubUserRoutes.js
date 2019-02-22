@@ -4,6 +4,7 @@ const request = require('request')
 const qs = require('querystring') // node core module, construct query string
 const randomString = require('randomstring') // generates a random string for the session secret
 const { CLIENT_ID, CLIENT_SECRET, redirect_uri } = require('../../config/gitHubOAuth')
+const UserSchema = require('../../models/userModel')
 
 // REGISTERING AND LOG-IN FOR GITHUB USER
 router.get('/register/github', (req, res) => {
