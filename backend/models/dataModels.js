@@ -1,19 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema 
 
-const CommentSchema = new Schema({
-    name: {
-        type: String
-    },
-    comment: {
-        type: String
-    },
-    date: {
-        type: String
-    }
-})
-
-const DataSchema = ({
+const DataSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -27,7 +15,7 @@ const DataSchema = ({
         required: true
     },
     comments: {
-        type: [CommentSchema],
+        type: [],
         required: true
     },
     userId: {
@@ -36,6 +24,6 @@ const DataSchema = ({
     }
 })
 
-const Data = mongoose.model('data', DataSchema)
+const DataItem = mongoose.model('data', DataSchema)
 
-module.exports = Data
+module.exports = DataItem
