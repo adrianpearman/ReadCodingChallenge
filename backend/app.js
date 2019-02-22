@@ -1,8 +1,20 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const cors = require('cors')
+
 const PORT = process.env.PORT || 4000
+const databaseConnection = require('./config/database')
+
+// Initializing to the DB
+mongoose.connect(databaseConnection, { useNewUrlParser: true })
+    .then(() => {
+        console.log('Database Connected: Successful')
+    })
+    .catch(err => {
+        console.log('Database Connected: False')
+    })
 
 // Middlewares 
 app.use(cors())
