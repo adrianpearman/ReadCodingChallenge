@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
         .then((data) => { res.status(200).json(data) })
         .catch(err => { res.status(400).json(err) })
 })
+// Grab the an individual post from the database
+router.get('/post/:id', (req, res) => {
+    const id = req.params.id
+    DataItem.findById(id)
+        .then((data) => { res.status(200).json(data) })
+        .catch(err => { res.status(400).json(err) })
+})
 // Add an item to the database
 router.post('/add', (req, res) => {
     const { title, imageUrl, userId } = req.body
